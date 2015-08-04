@@ -8,9 +8,57 @@
 			window.onload = function(){
 				//1. 为 #province 添加onchange 响应函数
 				document.getElementById("province").onchange = function(){
-					alert("onchange...");
+					//alert("onchange...");
+				
+				//1.1 把 #city 节点除地一个子节点外都移除
+					
+					
+					
+				//2. 加载 cities.xml 文件. 得到代表该文档的 Documnet 对象
+				var xmlDoc = parseXml("cities.xml");
+				
+				
+				
+				//3. 在city.xml 文档中查找和选择的生匹配的 province 节点
+				var provinces = xmlDoc.getElementsByTagName("province");
+				alert(provinces.length);
+				
+				var provinceVal = this.value;
+				alert(provinceVal);
+				
+				//4. 再得到 province 节点的所有的 city 子节点
+				
+				
+				//5. 遍历 city 子节点， 得到每一个 city 子节点的 文本值
+				
+				
+				
+				//6. 利用得到的文本值创建 option 节点
+				// <option>cityName</option>
+				
+				
+				//7. 并把 6 创建的 option 节点添加为 #city 的子节点 
+				
+				
+				
 				}
 					
+				//js 解析 xml 文档的函数, 只支持 ie
+				function parseXml(fileName){
+				    //IE 内核的浏览器
+				    if (window.ActiveXObject) {
+				        //创建 DOM 解析器
+				        var doc = new ActiveXObject("Microsoft.XMLDOM");
+				        doc.async = "false";
+				        //加载 XML 文档, 获取 XML 文档对象
+				        doc.load(fileName);
+				        return doc;
+				    }
+				}
+				
+				
+				
+				
 
 				}
 				
